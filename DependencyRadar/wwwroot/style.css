@@ -1,0 +1,320 @@
+/* Global settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121417;
+    color: #E5E7EB;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+/* Main container */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+/* Header */
+header {
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #9CA3AF;
+    font-size: 15px;
+}
+
+
+/* Scanner section */
+.scanner {
+    background-color: #1C2026;
+    border: 1px solid #2D333B;
+    border-radius: 12px;
+    padding: 28px;
+}
+
+.scanner h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.scanner>p {
+    color: #9CA3AF;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* Package inputs */
+.package-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.package-row input {
+    background-color: #121417;
+    color: #E5E7EB;
+    border: 1px solid #374151;
+    border-radius: 7px;
+    padding: 12px;
+    font-size: 14px;
+    outline: none;
+}
+
+.package-row input:first-child {
+    flex: 2;
+}
+
+.package-row input:last-child {
+    flex: 1;
+}
+
+.package-row input:focus {
+    border-color: #22C55E;
+}
+
+.package-row input::placeholder {
+    color: #6B7280;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 16px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#add-package {
+    background-color: transparent;
+    color: #22C55E;
+    padding-left: 0;
+    margin: 8px 0 20px;
+}
+
+#scan-button {
+    display: block;
+    width: 100%;
+    background-color: #22C55E;
+    color: #121417;
+}
+
+#scan-button:hover {
+    background-color: #16A34A;
+}
+
+/* Results section */
+#results {
+    margin-top: 28px;
+}
+
+
+.remove-package {
+    background-color: transparent;
+    color: #EF4444;
+    font-size: 16px;
+    padding: 8px 12px;
+}
+
+.remove-package:hover {
+    background-color: #2A1B1B;
+}
+
+.package-row {
+    align-items: center;
+}
+
+
+/* Result cards */
+.result-card {
+    background-color: #1C2026;
+    border: 1px solid #2D333B;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.result-header h3 {
+    font-size: 18px;
+}
+
+.status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.status.vulnerable {
+    background-color: #3B2024;
+    color: #F87171;
+}
+
+.status.secure {
+    background-color: #183528;
+    color: #4ADE80;
+}
+
+.version {
+    color: #9CA3AF;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.vulnerability-count {
+    color: #F87171;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.fixed-version {
+    background-color: #121417;
+    border: 1px solid #2D333B;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.fixed-version span {
+    color: #9CA3AF;
+    font-size: 14px;
+}
+
+.fixed-version strong {
+    color: #4ADE80;
+}
+
+.vulnerability-details {
+    margin-top: 16px;
+}
+
+.vulnerability-details strong {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.vulnerability-details p {
+    color: #9CA3AF;
+    font-size: 14px;
+}
+
+
+/* Vulnerability details */
+.vulnerability-details {
+    background-color: #16191E;
+    border: 1px solid #303640;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+}
+
+.vulnerability-details strong {
+    display: block;
+    color: #F87171;
+    margin-bottom: 8px;
+}
+
+.vulnerability-details p {
+    color: #D1D5DB;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.vulnerability-details a {
+    color: #4ADE80;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.vulnerability-details a:hover {
+    text-decoration: underline;
+}
+
+/* Vulnerability count */
+.vulnerability-count.has-vulnerabilities {
+    color: #F87171;
+}
+
+.vulnerability-count.no-vulnerabilities {
+    color: #4ADE80;
+}
+
+.package-row input {
+    background-color: #121417;
+    color: #E5E7EB;
+    color-scheme: dark;
+}
+
+.package-row input:-webkit-autofill {
+    -webkit-text-fill-color: #E5E7EB;
+    -webkit-box-shadow: 0 0 0 1000px #121417 inset;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 94%;
+        padding: 30px 0;
+    }
+
+    .scanner {
+        padding: 18px;
+    }
+
+    .package-row {
+        flex-wrap: wrap;
+    }
+
+    .package-row input:first-child,
+    .package-row input:last-child {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .result-card {
+        padding: 18px;
+    }
+
+    .fixed-version {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .result-header {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+}
+
+#scan-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#scan-button {
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}

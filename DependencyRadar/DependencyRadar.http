@@ -1,0 +1,189 @@
+@DependencyRadar_HostAddress = http://localhost:5127
+
+### Check API health
+GET {{DependencyRadar_HostAddress}}/api/health
+Accept: application/json
+
+### Submit packages for scanning
+POST {{DependencyRadar_HostAddress}}/api/scans
+Content-Type: application/json
+
+{
+    "packages": [
+        {
+            "name": "Newtonsoft.Json",
+            "version": "13.0.1"
+        },
+        {
+            "name": "Serilog",
+            "version": "3.1.1"
+        }
+    ]
+}
+
+### Test invalid package
+POST {{DependencyRadar_HostAddress}}/api/scans
+Content-Type: application/json
+
+{
+    "packages": [
+        {
+            "name": "",
+            "version": "13.0.1"
+        },
+        {
+            "name": "Serilog",
+            "version": "   "
+        }
+    ]
+}
+
+### Test 1 - Valid packages
+POST {{DependencyRadar_HostAddress}}/api/scans
+Content-Type: application/json
+
+{
+    "packages": [
+        { "name": "Newtonsoft.Json", "version": "13.0.1" },
+        { "name": "Serilog", "version": "3.1.1" }
+    ]
+}
+
+### Test 2 - Missing name
+POST {{DependencyRadar_HostAddress}}/api/scans
+Content-Type: application/json
+
+{
+    "packages": [
+        { "name": "", "version": "13.0.1" }
+    ]
+}
+
+### Test 3 - Empty list
+POST {{DependencyRadar_HostAddress}}/api/scans
+Content-Type: application/json
+
+{
+    "packages": []
+}
+
+### Test 4 - Null package
+POST {{DependencyRadar_HostAddress}}/api/scans
+Content-Type: application/json
+
+{
+    "packages": [
+        null
+    ]
+}
+
+### Test 5 - Direct OSV API
+POST https://api.osv.dev/v1/query
+Content-Type: application/json
+
+{
+    "package": {
+        "name": "Newtonsoft.Json",
+        "ecosystem": "NuGet"
+    },
+    "version": "13.0.1"
+}
+
+### Test 6 - Known vulnerable package
+POST {{DependencyRadar_HostAddress}}/api/scans
+Content-Type: application/json
+
+{
+    "packages": [
+        {
+            "name": "Newtonsoft.Json",
+            "version": "9.0.1"
+        }
+    ]
+}
+
+### Test 5A - Missing package name
+POST {{DependencyRadar_HostAddress}}/api/scans
+Content-Type: application/json
+
+{
+    "packages": [
+        {
+            "name": "",
+            "version": "9.0.1"
+        }
+    ]
+}
+
+### Test 5B - Missing package version
+POST {{DependencyRadar_HostAddress}}/api/scans
+Content-Type: application/json
+
+{
+    "packages": [
+        {
+            "name": "Newtonsoft.Json",
+            "version": ""
+        }
+    ]
+}
+
+### Test 6 - More than 50 packages
+POST {{DependencyRadar_HostAddress}}/api/scans
+Content-Type: application/json
+
+{
+    "packages": [
+        { "name": "Package1", "version": "1.0.0" },
+        { "name": "Package2", "version": "1.0.0" },
+        { "name": "Package3", "version": "1.0.0" },
+        { "name": "Package4", "version": "1.0.0" },
+        { "name": "Package5", "version": "1.0.0" },
+        { "name": "Package6", "version": "1.0.0" },
+        { "name": "Package7", "version": "1.0.0" },
+        { "name": "Package8", "version": "1.0.0" },
+        { "name": "Package9", "version": "1.0.0" },
+        { "name": "Package10", "version": "1.0.0" },
+        { "name": "Package11", "version": "1.0.0" },
+        { "name": "Package12", "version": "1.0.0" },
+        { "name": "Package13", "version": "1.0.0" },
+        { "name": "Package14", "version": "1.0.0" },
+        { "name": "Package15", "version": "1.0.0" },
+        { "name": "Package16", "version": "1.0.0" },
+        { "name": "Package17", "version": "1.0.0" },
+        { "name": "Package18", "version": "1.0.0" },
+        { "name": "Package19", "version": "1.0.0" },
+        { "name": "Package20", "version": "1.0.0" },
+        { "name": "Package21", "version": "1.0.0" },
+        { "name": "Package22", "version": "1.0.0" },
+        { "name": "Package23", "version": "1.0.0" },
+        { "name": "Package24", "version": "1.0.0" },
+        { "name": "Package25", "version": "1.0.0" },
+        { "name": "Package26", "version": "1.0.0" },
+        { "name": "Package27", "version": "1.0.0" },
+        { "name": "Package28", "version": "1.0.0" },
+        { "name": "Package29", "version": "1.0.0" },
+        { "name": "Package30", "version": "1.0.0" },
+        { "name": "Package31", "version": "1.0.0" },
+        { "name": "Package32", "version": "1.0.0" },
+        { "name": "Package33", "version": "1.0.0" },
+        { "name": "Package34", "version": "1.0.0" },
+        { "name": "Package35", "version": "1.0.0" },
+        { "name": "Package36", "version": "1.0.0" },
+        { "name": "Package37", "version": "1.0.0" },
+        { "name": "Package38", "version": "1.0.0" },
+        { "name": "Package39", "version": "1.0.0" },
+        { "name": "Package40", "version": "1.0.0" },
+        { "name": "Package41", "version": "1.0.0" },
+        { "name": "Package42", "version": "1.0.0" },
+        { "name": "Package43", "version": "1.0.0" },
+        { "name": "Package44", "version": "1.0.0" },
+        { "name": "Package45", "version": "1.0.0" },
+        { "name": "Package46", "version": "1.0.0" },
+        { "name": "Package47", "version": "1.0.0" },
+        { "name": "Package48", "version": "1.0.0" },
+        { "name": "Package49", "version": "1.0.0" },
+        { "name": "Package50", "version": "1.0.0" },
+        { "name": "Package51", "version": "1.0.0" }
+    ]
+}

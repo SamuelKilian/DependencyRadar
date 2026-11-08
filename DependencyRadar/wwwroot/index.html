@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependency Radar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <header>
+            <h1>Dependency Radar</h1>
+            <p>Scan your NuGet dependencies for known vulnerabilities.</p>
+        </header>
+
+        <section class="scanner">
+            <h2>Scan your dependencies</h2>
+            <p>Enter the NuGet packages you want to check.</p>
+
+            <form id="scan-form">
+                <div id="package-list">
+                    <div class="package-row">
+                        <input
+                            type="text"
+                            name="package"
+                            placeholder="Package name (e.g. Newtonsoft.Json)"
+                            required
+                        >
+
+                        <input
+                            type="text"
+                            name="version"
+                            placeholder="Version (e.g. 9.0.1)"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <button type="button" id="add-package">
+                    + Add another package
+                </button>
+
+                <button type="submit" id="scan-button">
+                    Scan dependencies
+                </button>
+            </form>
+        </section>
+
+        <section id="results">
+            <!-- Scan results will appear here -->
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
